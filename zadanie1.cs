@@ -28,8 +28,8 @@ class zadanie
         {
 
             double delta = b * b - 4 * a * c;
-            switch (delta) {
-            case > 0:
+            if (delta > 0)
+            {
 
                 delta = Math.Round(Math.Sqrt(delta));
 
@@ -37,18 +37,22 @@ class zadanie
                 double x2 = (-b + delta) / (2 * a);
 
                 Console.WriteLine("x1: {0:#.##} x2: {1:#.##} ", x1, x2);
-                break;
 
-            case 0:
+            }
+
+            else if (delta == 0)
+            {
 
                 double x0 = -b / (2 * a);
                 Console.WriteLine("x0: {0:#.##} ", x0);
-                break;
 
-            default:
+            }
+
+            else
+            {
 
                 Console.WriteLine("brak pierwiastkow");
-                break;
+
             }
 
         }
