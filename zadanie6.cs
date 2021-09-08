@@ -1,33 +1,82 @@
 ﻿using System;
 
-class zadanie3
+class zadanie6
 {
 
     public static void Main()
     {
+        Console.Write("podaj dlugosc tablicy ");
+        int n = int.Parse(Console.ReadLine());
+        int[] d = new int[n];
+        for (int b = 0; b < d.Length; b++)
+        {
 
-        Random x = new Random(10);
-        x.Next(10);
+            Console.Write("podaj " + b + " liczbe tablicy ");
+            int x = int.Parse(Console.ReadLine());
+            d[b] = x;
+
+        }
+
+        int j = 1;
 
     start:
 
-        Console.Write("podaj liczbe 0-9 ");
-        int y = int.Parse(Console.ReadLine());
-        if (y == x.Next(10))
+        if (j < d.Length)
         {
 
-            Console.WriteLine("zgadles!");
-            goto start;
+            int i = 1;
+
+        iii:
+
+            if (i < d.Length)
+            {
+
+                if (d[i - 1] > d[i])
+                {
+
+                    int y;
+                    y = d[i - 1];
+                    d[i - 1] = d[i];
+                    d[i] = y;
+                    goto ddd;
+
+                }
+
+                else
+                {
+
+                    goto ddd;
+
+                }
+
+            ddd:
+
+                i++;
+                goto iii;
+
+            }
+
+            else
+            {
+
+                j++;
+                goto start;
+
+            }
 
         }
+
         else
         {
 
-            Console.WriteLine("nie zgadles :c");
-            goto start;
+            for (int c = 0; c < d.Length; c++)
+            {
+
+                Console.WriteLine(d[c]);
+
+            }
 
         }
-
 
     }
 

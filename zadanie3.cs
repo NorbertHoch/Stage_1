@@ -1,60 +1,33 @@
 ﻿using System;
 
-class zadanie4
+class zadanie3
 {
 
     public static void Main()
     {
 
-        Console.Write("podaj liczbe liczb ");
+        Random x = new Random(10);
+        x.Next(10);
+
+    start:
+
+        Console.Write("podaj liczbe 0-9 ");
         int y = int.Parse(Console.ReadLine());
-
-        int z;
-
-        double[] x = new double[y];
-        for (int i0 = 0; i0 < x.Length; i0++)
+        if (y == x.Next(10))
         {
 
-            Console.Write("podaj {0} liczbe ", (i0 + 1));
-            z = int.Parse(Console.ReadLine());
+            Console.WriteLine("zgadles!");
+            goto start;
 
-            x[i0] = z;
+        }
+        else
+        {
+
+            Console.WriteLine("nie zgadles :c");
+            goto start;
 
         }
 
-        foreach (int i2 in x)
-        {
-
-            Console.WriteLine("foreach " + i2);
-
-        }
-
-        for (int i1 = 0; i1 < x.Length; i1++)
-        {
-
-            Console.WriteLine("for " + x[i1]);
-
-        }
-
-        int i3 = 0;
-
-        while (i3 < x.Length)
-        {
-
-            Console.WriteLine("while " + x[i3]);
-            i3++;
-
-        }
-
-        int i4 = 0;
-
-        do
-        {
-
-            Console.WriteLine("do while " + x[i4]);
-            i4++;
-
-        } while (i4 < x.Length);
 
     }
 

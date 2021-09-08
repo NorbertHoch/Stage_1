@@ -1,6 +1,6 @@
 ﻿using System;
 
-class zadanie
+class zadanie1
 {
 
     public static void Main()

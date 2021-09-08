@@ -1,61 +1,63 @@
 ﻿using System;
 
-class zadanie
+class Licz
+{
+
+    private int wartosc;
+
+    public Licz(int wart)
+    {
+
+        wartosc = wart;
+
+    }
+
+    public int dodaj(int plus)
+    {
+
+        wartosc += plus;
+        return wartosc;
+
+    }
+
+    public int odejmij(int minus)
+    {
+
+        wartosc -= minus;
+        return wartosc;
+
+    }
+
+    public void wypisz()
+    {
+
+        Console.WriteLine(wartosc);
+
+    }
+
+}
+
+class zadanie5
 {
 
     public static void Main()
     {
 
-    start:
+        Licz liczba1 = new Licz(10);
 
-        Console.Write("podaj liczbe a ");
-        double a = double.Parse(Console.ReadLine());
+        Console.Write("podaj liczbe ");
+        int x = int.Parse(Console.ReadLine());
+        Licz liczba2 = new Licz(x);
 
-        Console.Write("podaj liczbe b ");
-        double b = double.Parse(Console.ReadLine());
+        Console.Write("podaj liczbe do odjecia ");
+        int y = int.Parse(Console.ReadLine());
+        liczba2.odejmij(y);
 
-        Console.Write("podaj liczbe c ");
-        double c = double.Parse(Console.ReadLine());
+        liczba1.dodaj(10);
+        liczba1.odejmij(1);
 
-        if (a == 0)
-        {
-
-            Console.WriteLine("podano złą wartość ");
-            goto start;
-
-        }
-        else
-        {
-
-            double delta = b * b - 4 * a * c;
-            if (delta > 0)
-            {
-
-                delta = Math.Round(Math.Sqrt(delta));
-
-                double x1 = (-b - delta) / (2 * a);
-                double x2 = (-b + delta) / (2 * a);
-
-                Console.WriteLine("x1: {0:#.##} x2: {1:#.##} ", x1, x2);
-
-            }
-
-            else if (delta == 0)
-            {
-
-                double x0 = -b / (2 * a);
-                Console.WriteLine("x0: {0:#.##} ", x0);
-
-            }
-
-            else
-            {
-
-                Console.WriteLine("brak pierwiastkow");
-
-            }
-
-        }
+        liczba1.wypisz();
+        liczba2.wypisz();
 
     }
 
