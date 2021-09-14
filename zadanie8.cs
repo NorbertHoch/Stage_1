@@ -1,194 +1,204 @@
 ﻿using System;
 
-class list1
+class lista1
 {
+    public string[] lista = new string[1000];
 
-    public string[] elementy = new string[3];
-
-    public void Add(string dodaj)
+    public string FIRST()
     {
 
-        if (elementy[0] == null)
+        return lista[0];
+
+    }
+
+    public void ADD(string dodaj)
+    {
+
+        for(int i = 0; i < lista.Length; i++)
         {
 
-            elementy[0] = dodaj;
+            if(lista[i] == null)
+            {
+
+                lista[i] = dodaj;
+                break;
+
+            }
+
+        }
+
+    }
+    public void REMOVE()
+    {
+
+        for (int i = 0; i < lista.Length; i++)
+        {
+
+            if (lista[i] == null)
+            {
+
+                lista[i - 1] = null;
+                break;
+
+            }
+
+        }
+
+    }
+
+    public void PRINT()
+    {
+
+        for(int i = 0; i < lista.Length; i++)
+        {
+
+            if (lista[i] != null)
+            {
+
+                Console.WriteLine(lista[i]);
+
+            }
+
+        }
+
+    }
+
+
+}
+
+class lista2
+{
+    public string[] lista = new string[1000];
+
+    public string FIRST()
+    {
+
+        return lista[0];
+
+    }
+    
+    public string LAST(string last)
+    {
+
+        for(int i = 0; i < lista.Length; i++)
+        {
+
+            if(lista[i] == null)
+            {
+
+                last = lista[i - 1];
+                break;
+
+            }
+
+        }
+        return last;
+    }
+
+    public void ADD(string dodaj)
+    {
+
+        for (int i = 0; i < lista.Length; i++)
+        {
+
+            if (lista[i] == null)
+            {
+
+                lista[i] = dodaj;
+                break;
+
+            }
+
+        }
+
+    }
+    public void REMOVE(int usun)
+    {
+        if (lista[usun] != null)
+        {
+
+            lista[usun] = null;
 
         }
         else
         {
-            for (int i = 0; i < elementy.Length; i++)
-            {
 
-                if (elementy[i] == null)
-                {
+            Console.WriteLine("to miejsce jest puste");
 
-                    elementy[i] = dodaj;
-                    break;
-
-                }
-
-            }
         }
-
     }
-    public void Remove(int usun)
+
+    public void PRINT()
     {
 
-        elementy[usun] = null;
+        for (int i = 0; i < lista.Length; i++)
+        {
+
+            if(lista[i] != null)
+            {
+
+                Console.WriteLine(lista[i]);
+
+            }
+
+        }
 
     }
 
-    public void Print()
+
+}
+
+class test
+{
+
+    public static void Main()
     {
 
-        for (int j = 0; j < elementy.Length; j++)
-        Console.WriteLine(elementy[j]);
-
-    }
-
-    }
-
-    class list2
-    {
-
-        public string[] elementy = new string[3];
-
-        public void Add(string dodaj)
+        lista1 l1 = new lista1();
+        for(int i = 0; i < 3; i++)
         {
 
-            if (elementy[0] == null)
-            {
-
-                elementy[0] = dodaj;
-
-            }
-            else
-            {
-                for (int i = 0; i < elementy.Length; i++)
-                {
-
-                    if (elementy[i] == null)
-                    {
-
-                        elementy[i] = dodaj;
-                        break;
-
-                    }
-
-                }
-            }
-        }
-    
-
-        public void Remove(int usun)
-        {
-
-            elementy[usun] = null;
+            Console.Write("podaj wyraz ");
+            l1.ADD(Console.ReadLine());
 
         }
 
-        public void Print()
+        Console.WriteLine("print1 ");
+        l1.PRINT();
+
+        for (int i = 0; i < 2; i++)
         {
 
-            for (int j = 0; j < elementy.Length; j++)
-                Console.WriteLine(elementy[j]);
+            l1.REMOVE();
 
         }
 
-        public string Prev(int liczba, string x)
-        {
+        Console.WriteLine("print2 ");
+        l1.PRINT();
 
-            x = "null";
-
-            if (elementy[liczba - 1] == null)
-            {
-
-                return x;
-
-            }
-            else
-            {
-
-                return elementy[liczba - 1];
-
-            }
-
-
-        }
-
-        public string Next(int liczba, string x)
-        {
-
-            x = "null";
-
-            if (elementy[liczba + 1] == null)
-            {
-
-                return x;
-
-            }
-            else
-            {
-
-                return elementy[liczba + 1];
-
-            }
-
-
-        }
-
-    }
-
-    class zadanie8
-    {
-
-        public static void Main()
-        {
-
-            list2 lista = new list2();
-        
+        lista2 l2 = new lista2();
         for (int i = 0; i < 3; i++)
-            {
+        {
 
-                Console.Write("podaj " + (i + 1) + " element tablicy ");
-                lista.Add(Console.ReadLine());
-
-            }
-
-            lista.Print();
-
-            for (int i = 0; i < 2; i++)
-            {
-
-                Console.Write("podaj index elementu tablicy do usuniecia ");
-                lista.Remove(int.Parse(Console.ReadLine()));
-
-            }
-
-            lista.Print();
-
-            list1 lista1 = new list1();
-
-            for (int i = 0; i < 3; i++)
-            {
-
-                Console.Write("podaj " + (i + 1) + " element tablicy ");
-                lista1.Add(Console.ReadLine());
-
-            }
-
-            lista1.Print();
-
-            for (int i = 0; i < 2; i++)
-            {
-
-            Console.Write("podaj index elementu tablicy do usuniecia ");
-            lista1.Remove(int.Parse(Console.ReadLine()));
-            
-            }
-
-            lista1.Print();
+            Console.Write("podaj wyraz ");
+            l2.ADD(Console.ReadLine());
 
         }
 
+        Console.WriteLine("print3 ");
+        l2.PRINT();
+
+        for (int i = 0; i < 2; i++)
+        {
+
+            Console.Write("podaj index wartosci do usuniecia ");
+            l2.REMOVE(int.Parse(Console.ReadLine()));
+
+        }
+
+        Console.WriteLine("print4 ");
+        l2.PRINT();
+
     }
+
+}
